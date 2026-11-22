@@ -1,0 +1,42 @@
+[
+  {
+    "name": "wv_search_businesses",
+    "description": "Search the West Virginia Secretary of State business organization records by entity name. The register matches names that contain the text you give, so a short word returns many organisations; each row carries match = exact | legal_form_variant | name_prefix, ranked in that order, and hits counts only the exact and legal_form_variant rows. Tolerant of case, \"&\" vs \"and\" and the legal-form spelling (Inc / Incorporated, LLC / L.L.C.). Returns each organisation's file_number (the register's organization id), name, entity type, locale (domestic = formed in West Virginia, foreign = formed elsewhere and registered there), profit class, status, and effective, established and termination dates and reason. The register publishes no status column: status_normalized is active when no termination is recorded, inactive otherwise. status_basis says so on every row (always inferred). Fictitious-name, trademark and emblem registrations are included and marked in name_kind; they are not companies. total_in_register is the number of organisation rows the register returned. Entity-level only: no individuals' names and no addresses. Each call takes roughly 3 to 6 seconds, because the register's form must be loaded and submitted after a short pause.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Entity name, e.g. \"Acme Alternator, LLC\"."
+        },
+        "active_only": {
+          "type": "boolean",
+          "description": "Only organisations with no termination recorded. Default false."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum rows returned (1-100, default 25)."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  },
+  {
+    "name": "wv_get_business",
+    "description": "One West Virginia Secretary of State business organization by its organization id (file_number from wv_search_businesses): name, entity type, locale, profit class, status, dates and termination reason, plus business purpose (the register's industry code and text), charter county, charter state and control number. Entity-level only: no officers, members, organisers, agents or addresses are returned. found is false only when the register answered and holds no such id.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "org_id": {
+          "type": "string",
+          "description": "Organization id, digits only, e.g. \"253587\"."
+        }
+      },
+      "required": [
+        "org_id"
+      ]
+    }
+  }
+]

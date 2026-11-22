@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.pipeworx-io/wv-sos-business",
+  "title": "Wv Sos Business",
+  "description": "wv-sos-business -- the West Virginia Secretary of State business-organisation register, searched…",
+  "version": "0.1.0",
+  "websiteUrl": "https://pipeworx.io/packs/wv-sos-business",
+  "repository": {
+    "url": "https://github.com/pipeworx-io/mcp-wv-sos-business",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://gateway.pipeworx.io/wv-sos-business/mcp"
+    }
+  ]
+}

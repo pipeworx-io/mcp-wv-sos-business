@@ -1,0 +1,33 @@
+{
+  "name": "@pipeworx/mcp-wv-sos-business",
+  "version": "0.1.0",
+  "description": "wv-sos-business -- the West Virginia Secretary of State business-organisation register, searched live per request (fleet #4428). Entity-level data only: no individuals' names (officers, members, organisers and the notice-of-process agent are left out) and no addresses, no bulk copy.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "mcp-wv-sos-business": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "wv-sos-business"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipeworx-io/mcp-wv-sos-business.git"
+  },
+  "mcpName": "io.github.pipeworx-io/wv-sos-business",
+  "pipeworx": {
+    "mode": "gateway",
+    "slug": "wv-sos-business",
+    "gatewaySlug": "wv-sos-business",
+    "sourceHash": "v1-920b632244ca819b68123a783797e453cf8f0ea1a533aac2ca3ecbae203cdfae",
+    "sourceCommit": "1f2a5a2fcad7648b46072dea4d35b002f10fe8ef"
+  }
+}
